@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./output.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body
+    class="bg-[#C4E4E7] flex flex-col items-center justify-center h-dvh w-dvw gap-10 px-2"
+  >
+    <section>
+      <div
+        class="bg-green-500 w-10 h-10 fixed top-0 left-0 flex items-center justify-center text-3xl rounded-br-lg"
+      >
+        📱
+      </div>
+      <div
+        class="sm:flex bg-yellow-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
+      >
+        sm
+      </div>
+      <div
+        class="md:flex bg-red-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
+      >
+        md
+      </div>
+      <div
+        class="lg:flex bg-blue-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
+      >
+        lg
+      </div>
+      <div
+        class="xl:flex bg-purple-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
+      >
+        xl
+      </div>
+      <div
+        class="2xl:flex bg-black w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
+      >
+        2xl
+      </div>
+    </section>
+
+    <div>
+      <img src="./images/logo.svg" alt="" class="pb-10" />
+    </div>
+
+    <form
+      id="form"
+      class="md:h-[500px] md:flex-row max-w-[1022px] w-full rounded-lg bg-white flex flex-col gap-6 items-center justify-evenly p-6"
+    >
+      <div
+        class="w-full flex-col flex items-center justify-evenly gap-4 h-full"
+      >
+        <div class="w-full flex flex-col items-center justify-center">
+          <label for="input" class="font-mono font-bold self-start">Bill</label>
+          <div class="input_with_symbol w-full relative">
+            <span class="absolute left-[12px] top-[5px] text-3xl text-[#9EBBBD]"
+              >$</span
+            >
+            <input
+              name="bill_amount"
+              id="bill"
+              placeholder="142.55"
+              type="number"
+              class="focus:border-[#26C2AE] hover:border-[#26C2AE] border-solid border-2 border-[#F3F8FB] cursor-pointer pr-4 rounded-lg font-bold text-2xl w-full bg-[#F3F8FB] h-12 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              step="0.01"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center w-full gap-2">
+          <label for="" class="self-start font-bold">Select Tip %</label>
+          <div
+            class="md:grid-rows-2 md:grid-cols-3 md:h-28 grid grid-cols-2 grid-rows-3 gap-6 w-full h-52"
+          >
+            <button
+              name="tip_amount"
+              value="0.05"
+              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+            >
+              5%
+            </button>
+            <button
+              name="tip_amount"
+              value="0.10"
+              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+            >
+              10%
+            </button>
+            <button
+              name="tip_amount"
+              value="0.15"
+              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+            >
+              15%
+            </button>
+            <button
+              name="tip_amount"
+              value="0.25"
+              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+            >
+              25%
+            </button>
+            <button
+              name="tip_amount"
+              value="0.50"
+              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+            >
+              50%
+            </button>
+            <input
+              name="tip_amount"
+              type="number"
+              id="customTip"
+              step="0.01"
+              placeholder="custom"
+              class="text-center flex items-center justify-center bg-[#F3F9FA] text-[#547878] font-extrabold text-2xl rounded-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:border-[#26C2AE] hover:border-[#26C2AE] border-solid border-2 border-[#F3F8FB] cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center w-full gap-2">
+          <div class="input_with_symbol w-full relative">
+            <span
+              class="absolute left-[12px] top-[32px] text-2xl text-[#9EBBBD] text-opacity-30"
+              >👤</span
+            >
+            <div class="flex w-full justify-between">
+              <label for="" class="self-start font-bold"
+                >Number of People</label
+              >
+              <label class="text-right text-red-600" id="errorMessage"> </label>
+            </div>
+            <input
+              name="num_of_people"
+              id="numPeople"
+              type="number"
+              placeholder="5"
+              class="focus:border-[#26C2AE] hover:border-[#26C2AE] border-solid border-2 border-[#F3F8FB] cursor-pointer text-right w-full h-12 bg-[#F3F8FB] text-2xl [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pr-4 rounded-lg font-bold"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="md:pt-10 bg-[#03474B] w-full p-6 rounded-lg gap-10 flex flex-col h-full"
+      >
+        <div class="flex flex-row justify-between items-center">
+          <div class="flex-col gap-2 items-center justify-center">
+            <h1 class="text-white text-xl">Tip Amount</h1>
+            <h2 class="text-white text-opacity-30 text-lg">/ person</h2>
+          </div>
+          <h1 class="text-[#24C2AD] text-5xl font-bold" id="resultTip">
+            $0.00
+          </h1>
+        </div>
+        <div class="flex flex-row justify-between items-center">
+          <div class="flex-col gap-2 items-center justify-center">
+            <h1 class="text-white text-xl">Total Amount</h1>
+            <h2 class="text-white text-opacity-30 text-lg">/ person</h2>
+          </div>
+          <h1 class="text-[#24C2AD] text-5xl font-bold" id="resultTotal">
+            $0.00
+          </h1>
+        </div>
+
+        <button
+          type="button"
+          id="reset"
+          class="hover:bg-[#9FE8DF] bg-[#26C1AD] w-full rounded-lg font-mono py-4 text-4xl font-bold mt-auto"
+        >
+          RESET
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
