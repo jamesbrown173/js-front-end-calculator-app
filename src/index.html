@@ -83,6 +83,10 @@
           </div>
         </div>
 
+        <!-------------------------------------------------------------------------------------------------->
+        <!-- Select Tip Amount -->
+        <!-------------------------------------------------------------------------------------------------->
+
         <div class="flex flex-col items-center justify-center w-full gap-2">
           <label for="" class="self-start font-bold">Select Tip %</label>
           <div
@@ -91,35 +95,35 @@
             <button
               name="tip_amount"
               value="0.05"
-              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+              class="tipButton flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
             >
               5%
             </button>
             <button
               name="tip_amount"
               value="0.10"
-              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+              class="tipButton flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
             >
               10%
             </button>
             <button
               name="tip_amount"
               value="0.15"
-              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+              class="tipButton flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
             >
               15%
             </button>
             <button
               name="tip_amount"
               value="0.25"
-              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+              class="tipButton flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
             >
               25%
             </button>
             <button
               name="tip_amount"
               value="0.50"
-              class="tip_button flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
+              class="tipButton flex items-center justify-center hover:bg-[#9FE8DF] hover:text-[#00474B] bg-[#03474B] text-white font-extrabold text-2xl rounded-lg"
             >
               50%
             </button>
@@ -146,6 +150,10 @@
               >
               <label class="text-right text-red-600" id="errorMessage"> </label>
             </div>
+            <!-------------------------------------------------------------------------------------------------->
+            <!-- Select Number of People-->
+            <!-------------------------------------------------------------------------------------------------->
+
             <input
               name="num_of_people"
               id="numPeople"
@@ -157,6 +165,10 @@
         </div>
       </div>
 
+      <!-------------------------------------------------------------------------------------------------->
+      <!-- Outputted Amounts-->
+      <!-------------------------------------------------------------------------------------------------->
+
       <div
         class="md:pt-10 bg-[#03474B] w-full p-6 rounded-lg gap-10 flex flex-col h-full"
       >
@@ -165,7 +177,7 @@
             <h1 class="text-white text-xl">Tip Amount</h1>
             <h2 class="text-white text-opacity-30 text-lg">/ person</h2>
           </div>
-          <h1 class="text-[#24C2AD] text-5xl font-bold" id="resultTip">
+          <h1 id="resultTip" class="text-[#24C2AD] text-5xl font-bold">
             $0.00
           </h1>
         </div>
@@ -179,9 +191,13 @@
           </h1>
         </div>
 
+        <!-------------------------------------------------------------------------------------------------->
+        <!-- Reset button-->
+        <!-------------------------------------------------------------------------------------------------->
+
         <button
           type="button"
-          id="reset"
+          id="clearAll"
           class="hover:bg-[#9FE8DF] bg-[#26C1AD] w-full rounded-lg font-mono py-4 text-4xl font-bold mt-auto"
         >
           RESET
