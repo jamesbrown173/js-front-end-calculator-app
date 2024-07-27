@@ -5,11 +5,11 @@ const tipButtons = document.getElementsByClassName("tipButton");
 const numPeopleInput = document.getElementById("numPeople");
 const resetButton = document.getElementById("clearAll");
 const resultTipAmount = document.getElementById("resultTip");
-console.log(resultTipAmount);
 const resultTotalAmount = document.getElementById("resultTotal");
+const peopleErrorMessage = document.getElementById("errorMessage");
 
 /*================================================================================================================
-currency formatter
+Currency Formatter
 *==============================================================================================================*/
 
 const formatter = new Intl.NumberFormat("en-US", {
@@ -18,16 +18,18 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 /*================================================================================================================
-variables
+Variables
 *==============================================================================================================*/
 var billAmount = 0;
 var tipPercentage = 0;
 var numPeople = 0;
 
 /*================================================================================================================
-1. list all user input methods
-2. get all form data and assign to variables
-4. reset the form
+1. List all possible ways of users entering into the form
+2. Get all form data and assign to variables
+3. only calculate if the fields have data.
+4. Reset the form data
+5. Handle Error inputs
 *==============================================================================================================*/
 
 // List all possible ways of triggering
@@ -35,7 +37,9 @@ var numPeople = 0;
 // 1. Type in the bill
 billInput.addEventListener("keyup", function (event) {
   billAmount = event.target.value;
-  calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  if (numPeople !== 0) {
+    calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  }
 });
 
 // 2. Click a button
@@ -45,20 +49,35 @@ for (let i = 0; i < tipButtons.length; i += 1) {
     event.preventDefault();
     tipPercentage = event.target.value;
 
-    calculateAndUpdate(billAmount, tipPercentage, numPeople);
+    if (numPeople == 0) {
+      handleErrorInputPeople();
+    }
+    if (billAmount != 0 && numPeople != 0) {
+      calculateAndUpdate(billAmount, tipPercentage, numPeople);
+    }
   });
 }
 
 // 3. Type in the custom tip field
 customTipInput.addEventListener("keyup", function (event) {
   tipPercentage = event.target.value / 100;
-  calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  if (numPeople != 0 && billAmount != 0) {
+    calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  }
 });
 
 // 4. Type in the number of people field
 numPeopleInput.addEventListener("keyup", function (event) {
   numPeople = event.target.value;
-  calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  peopleErrorMessage.innerText = " ";
+  numPeopleInput.classList.remove("border-red-400", "hover:border-red-400");
+
+  if (numPeople == 0) {
+    handleErrorInputPeople();
+  }
+  if (numPeople != 0 && billAmount != 0) {
+    calculateAndUpdate(billAmount, tipPercentage, numPeople);
+  }
 });
 
 // 5. Click the reset button
@@ -74,18 +93,19 @@ resetButton.addEventListener("click", function () {
 });
 
 /*================================================================================================================
-1. calculateAndUpdate
-
-2. update the elements
+1. calculateAndUpdate the amounts into the elements
+2. Handle the error input into the number of people
 *==============================================================================================================*/
 
 function calculateAndUpdate(bill, tip, people) {
   totalAmountPerPerson = bill / people;
   tipPerPerson = (bill * tip) / people;
 
-  resultTipAmount.innerText = `$ ${tipPerPerson}`;
-  resultTotalAmount.innerText = `$ ${totalAmountPerPerson}`;
+  resultTipAmount.innerText = `${formatter.format(tipPerPerson)}`;
+  resultTotalAmount.innerText = `${formatter.format(totalAmountPerPerson)}`;
+}
 
-  console.log(`Total Amount Per Person: ${totalAmountPerPerson}`);
-  console.log(`Tip Per Person: ${tipPerPerson}`);
+function handleErrorInputPeople() {
+  peopleErrorMessage.innerText = "Can't be zero";
+  numPeopleInput.classList.add("border-red-400", "hover:border-red-400");
 }

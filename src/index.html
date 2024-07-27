@@ -22,39 +22,6 @@
   <body
     class="bg-[#C4E4E7] flex flex-col items-center justify-center h-dvh w-dvw gap-10 px-2"
   >
-    <section>
-      <div
-        class="bg-green-500 w-10 h-10 fixed top-0 left-0 flex items-center justify-center text-3xl rounded-br-lg"
-      >
-        📱
-      </div>
-      <div
-        class="sm:flex bg-yellow-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
-      >
-        sm
-      </div>
-      <div
-        class="md:flex bg-red-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
-      >
-        md
-      </div>
-      <div
-        class="lg:flex bg-blue-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
-      >
-        lg
-      </div>
-      <div
-        class="xl:flex bg-purple-500 w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
-      >
-        xl
-      </div>
-      <div
-        class="2xl:flex bg-black w-10 h-10 hidden items-center justify-center text-white fixed top-0 left-0 rounded-br-lg"
-      >
-        2xl
-      </div>
-    </section>
-
     <div>
       <img src="./images/logo.svg" alt="" class="pb-10" />
     </div>
@@ -67,6 +34,9 @@
         class="w-full flex-col flex items-center justify-evenly gap-4 h-full"
       >
         <div class="w-full flex flex-col items-center justify-center">
+          <!-------------------------------------------------------------------------------------------------->
+          <!-- Enter Bill -->
+          <!-------------------------------------------------------------------------------------------------->
           <label for="input" class="font-mono font-bold self-start">Bill</label>
           <div class="input_with_symbol w-full relative">
             <span class="absolute left-[12px] top-[5px] text-3xl text-[#9EBBBD]"
@@ -75,7 +45,7 @@
             <input
               name="bill_amount"
               id="bill"
-              placeholder="142.55"
+              placeholder="00.00"
               type="number"
               class="focus:border-[#26C2AE] hover:border-[#26C2AE] border-solid border-2 border-[#F3F8FB] cursor-pointer pr-4 rounded-lg font-bold text-2xl w-full bg-[#F3F8FB] h-12 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               step="0.01"
@@ -158,7 +128,7 @@
               name="num_of_people"
               id="numPeople"
               type="number"
-              placeholder="5"
+              placeholder="0"
               class="focus:border-[#26C2AE] hover:border-[#26C2AE] border-solid border-2 border-[#F3F8FB] cursor-pointer text-right w-full h-12 bg-[#F3F8FB] text-2xl [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pr-4 rounded-lg font-bold"
             />
           </div>
